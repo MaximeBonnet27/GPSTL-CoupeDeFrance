@@ -1,0 +1,8 @@
+## IGNORER LES FICHIERS GENERES
+
+*.o
+*.bin
+*.elf
+*.hex
+*.map
+*.lst	
