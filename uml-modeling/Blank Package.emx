@@ -172,8 +172,8 @@
       </eAnnotations>
       <ownedAttribute xmi:type="uml:Port" xmi:id="_BpvKkNsJEeWj84xRZG_mwQ" name="port" type="_ILw9sN05EeWVTNfX3pkmvg" aggregation="composite"/>
       <ownedAttribute xmi:type="uml:Port" xmi:id="_CHPl8NsJEeWj84xRZG_mwQ" name="port2" type="_LbSNsN05EeWVTNfX3pkmvg" aggregation="composite"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_ILw9sN05EeWVTNfX3pkmvg" name="Class1" clientDependency="_ILyL0N05EeWVTNfX3pkmvg"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_LbSNsN05EeWVTNfX3pkmvg" name="Class2" clientDependency="_LbTb0N05EeWVTNfX3pkmvg"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_ILw9sN05EeWVTNfX3pkmvg" name="StepRequier" clientDependency="_ILyL0N05EeWVTNfX3pkmvg"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_LbSNsN05EeWVTNfX3pkmvg" name="InitialisationMotionRequier" clientDependency="_LbTb0N05EeWVTNfX3pkmvg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Component" xmi:id="_SeTPkNrrEeWUYIY_1Dh1jQ" name="Moteur">
       <eAnnotations xmi:id="_jaT1ANr8EeWj84xRZG_mwQ" source="uml2.diagrams">
@@ -230,7 +230,7 @@
       <ownedAttribute xmi:type="uml:Port" xmi:id="_uwIAQNsIEeWj84xRZG_mwQ" name="port" type="_ws3qUN04EeWVTNfX3pkmvg" aggregation="composite"/>
       <ownedAttribute xmi:type="uml:Port" xmi:id="_DjLYcNsJEeWj84xRZG_mwQ" name="port2" type="_uiLosNr5EeWj84xRZG_mwQ" aggregation="composite"/>
       <ownedAttribute xmi:type="uml:Port" xmi:id="_ETCvINsJEeWj84xRZG_mwQ" name="port3" type="_5zE4sNr6EeWj84xRZG_mwQ" aggregation="composite"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_ws3qUN04EeWVTNfX3pkmvg" name="Class1" clientDependency="_ws4RYN04EeWVTNfX3pkmvg"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_ws3qUN04EeWVTNfX3pkmvg" name="MouvementRequier" clientDependency="_ws4RYN04EeWVTNfX3pkmvg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Usage" xmi:id="_ws4RYN04EeWVTNfX3pkmvg" supplier="_sFinINr5EeWj84xRZG_mwQ" client="_ws3qUN04EeWVTNfX3pkmvg"/>
     <packagedElement xmi:type="uml:Usage" xmi:id="_ILyL0N05EeWVTNfX3pkmvg" supplier="_uiLosNr5EeWj84xRZG_mwQ" client="_ILw9sN05EeWVTNfX3pkmvg"/>
