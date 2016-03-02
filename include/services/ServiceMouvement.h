@@ -1,9 +1,8 @@
 #ifndef SERVICE_MOUVEMENT_H_GUARD
 #define SERVICE_MOUVEMENT_H_GUARD
 
-/**
- * Service Offert
- */
+#include "Service.h"
+
 
 class ServiceMouvement : public Service {
         public :
@@ -26,7 +25,10 @@ class ServiceMouvement : public Service {
  * Service Binding
  */
 
- class RequiertServiceMouvement : public RequiertService<ServiceMouvement>;
+ class RequiertServiceMouvement {
+         public :
+                virtual void bindService(ServiceMouvement* serviceMouvement) = 0;
+ };
 
 /* SERVICE_MOUVEMENT_H_GUARD */
 #endif
