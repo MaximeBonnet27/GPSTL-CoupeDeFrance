@@ -6,6 +6,5 @@ class Service {
                 virtual void init() = 0;
 };
 
-
 /* SERVICE_H_GUARD */
 #endif
