@@ -27,7 +27,7 @@ class DualVNH5019MotorShield;
 
                 /* ServiceMouvement */
 
-                /* Puissances -> periodewidth en microsecondes */
+                /* Puissances -> POURCENTAGE */
 
                 void avancer(float puissance);
                 void reculer(float puissance);

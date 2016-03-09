@@ -14,7 +14,7 @@ void VNH5019::init()
 {
         ENDIAG.input();
         ENDIAG.mode(PullUp);
-        PWM.period(0.00025);   // 4 kHz (valid 0 - 20 kHz)
+        PWM.period_us(250);   // 4 kHz (valid 0 - 20 kHz)
         PWM.write(0);
         INA = 0;
         INB = 0;

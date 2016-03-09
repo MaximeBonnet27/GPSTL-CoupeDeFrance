@@ -1,8 +1,8 @@
 #include "Sonar.h"
 #include "RangeFinder.h"
 
-void Sonar::init(PinName pin, int pulsetime, float scale, int timeout){
-    this->rangeFinder = new RangeFinder(pin, pulsetime, scale, timeout);
+void Sonar::init(){
+    this->rangeFinder = new RangeFinder(PC_6, 10, 5800.0, 100000);
 }
 
 bool Sonar::aDetecteObstacle(){

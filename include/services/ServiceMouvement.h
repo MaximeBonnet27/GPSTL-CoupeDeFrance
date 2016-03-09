@@ -10,16 +10,16 @@ class ServiceMouvement : public Service {
         /*
          * Fonctionnalités "natives"
          */
-                virtual void avancer(int puissance) = 0;
-                virtual void reculer(int puissance) = 0;
-                virtual void tourner(int puissance, double angle) = 0;
-                virtual void stopper() = 0;
+                virtual void avancer(float puissance) = 0;
+                virtual void reculer(float puissance) = 0;
+                virtual void tourner(float puissance, double angle) = 0;
+                virtual void stopper(float puissance) = 0;
         /*
          * Commodités
          */
-                virtual void faireDemiTour(int puissance) = 0;
-                virtual void tournerAngleDroitGauche(int puissance) = 0;
-                virtual void tournerAngleDroitDroite(int puissance) = 0;
+                virtual void faireDemiTour(float puissance) = 0;
+                virtual void tournerAngleDroitGauche(float puissance) = 0;
+                virtual void tournerAngleDroitDroite(float puissance) = 0;
 };
 
 /**

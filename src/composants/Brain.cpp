@@ -5,6 +5,7 @@
 void Brain::init(){
         pasCourant = 0;
         aDetecteObstacle = false;
+        aEnvoyeAvancer = false;
 }
 
 void Brain::start(){
@@ -14,13 +15,15 @@ void Brain::start(){
 }
 
 void Brain::step(){
-        if(serviceSonar->aDetecteObstacle()){
-                serviceMouvement->stopper();
+        if(!aEnvoyeAvancer){
+                serviceMouvement->avancer(300);
+                aEnvoyeAvancer = true;
+        }
+        if(!aDetecteObstacle && serviceSonar->aDetecteObstacle()){
+                serviceMouvement->stopper(300);
                 aDetecteObstacle = true;
         }
-        if(!aDetecteObstacle){
-                serviceMouvement->avancer(300);
-        }
+        wait(0.1);
 }
 
 void Brain::bindService(ServiceMouvement* serviceMouvement){

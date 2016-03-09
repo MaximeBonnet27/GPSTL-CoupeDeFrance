@@ -1,13 +1,13 @@
 #include "mbed.h"
 
 #include "Brain.h"
-#include "MoteurBouchon.h"
-#include "SonarBouchon.h"
+#include "Moteur.h"
+#include "Sonar.h"
 
 int main(){
         Brain* brain = new Brain();
-        MoteurBouchon* moteur = new MoteurBouchon();
-        SonarBouchon* sonar = new SonarBouchon();
+        Moteur* moteur = new Moteur();
+        Sonar* sonar = new Sonar();
 
         /* Initialisations */
         brain->init();

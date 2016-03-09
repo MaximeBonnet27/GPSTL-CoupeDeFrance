@@ -20,7 +20,7 @@ class Sonar :
                 RangeFinder* rangeFinder;
         public :
                 /* Service */
-                void init(PinName pin, int pulsetime, float scale, int timeout);
+                void init();
 
                 /* ServiceSonar */
                 bool aDetecteObstacle();

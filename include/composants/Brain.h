@@ -1,6 +1,8 @@
 #ifndef BRAIN_H_GUARD
 #define BRAIN_H_GUARD
 
+#include "mbed.h"
+
 #include "ServiceBrain.h"
 #include "ServiceMouvement.h"
 #include "ServiceSonar.h"
@@ -24,6 +26,7 @@ class Brain :
                         ServiceSonar* serviceSonar;
 
                         bool aDetecteObstacle;
+                        bool aEnvoyeAvancer;
 
                         int pasCourant;
 
