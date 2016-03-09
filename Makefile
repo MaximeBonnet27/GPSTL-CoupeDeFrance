@@ -4,6 +4,7 @@
 GCC_BIN =
 PROJECT = GPSTL-CoupeDeFrance
 OBJECTS = ./src/composants/Brain.o \
+	./src/composants/Sonar.o \
 	./src/composants/bouchons/MoteurBouchon.o \
 	./src/composants/bouchons/SonarBouchon.o \
 	./src/libraries/Pulse.o \
