@@ -10,6 +10,8 @@
  * Requiert : /
  */
 
+ class DRV8835;
+
  class Moteur :
         public ServiceMouvement
 {
