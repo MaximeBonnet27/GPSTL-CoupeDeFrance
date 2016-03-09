@@ -37,10 +37,10 @@ void Moteur::tourner(float puissance, double angle){
         }
 }
 
-void Moteur::stopper(){
+void Moteur::stopper(float puissance){
         Logger::info("Moteur::stopper");
-        carteMoteur.moteur_droite.speed(0);
-        carteMoteur.moteur_gauche.speed(0);
+        carteMoteur->moteur_droite.brake(puissance);
+        carteMoteur->moteur_gauche.brake(puissance);
 
 }
 

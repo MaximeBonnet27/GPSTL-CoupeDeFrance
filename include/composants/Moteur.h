@@ -32,7 +32,7 @@ class DualVNH5019MotorShield;
                 void avancer(float puissance);
                 void reculer(float puissance);
                 void tourner(float puissance, double angle);
-                void stopper();
+                void stopper(float puissance);
 
                 void faireDemiTour(float puissance);
                 void tournerAngleDroitGauche(float puissance);
