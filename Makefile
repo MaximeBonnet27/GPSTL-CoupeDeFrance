@@ -7,6 +7,8 @@ OBJECTS = ./src/composants/Brain.o \
 	./src/composants/Sonar.o \
 	./src/composants/bouchons/MoteurBouchon.o \
 	./src/composants/bouchons/SonarBouchon.o \
+	./src/composants/Moteur.o \
+	./src/composants/Sonar.o \
 	./src/libraries/Pulse.o \
 	./src/libraries/RangeFinder.o \
 	./src/libraries/VNH5019.o \
