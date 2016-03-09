@@ -3,20 +3,22 @@
 
 #include "ServiceMouvement.h"
 
+class VNH5019;
+class DualVNH5019MotorShield;
+
 /**
  * Composant MOTEUR
  * Offre : ServiceMouvement
  * Requiert : /
  */
 
- class DRV8835;
 
  class Moteur :
         public ServiceMouvement
 {
         private :
                 /* A remplir avec pins etc. */
-                DRV8835 * carteMoteur;
+                DualVNH5019MotorShield * carteMoteur;
 
         public :
                 /* Service */
@@ -27,14 +29,14 @@
 
                 /* Puissances -> periodewidth en microsecondes */
 
-                void avancer(int puissance);
-                void reculer(int puissance);
-                void tourner(int puissance, double angle);
+                void avancer(float puissance);
+                void reculer(float puissance);
+                void tourner(float puissance, double angle);
                 void stopper();
 
-                void faireDemiTour(int puissance);
-                void tournerAngleDroitGauche(int puissance);
-                void tournerAngleDroitDroite(int puissance);
+                void faireDemiTour(float puissance);
+                void tournerAngleDroitGauche(float puissance);
+                void tournerAngleDroitDroite(float puissance);
 };
 
 /* MOTEUR_H_GUARD */

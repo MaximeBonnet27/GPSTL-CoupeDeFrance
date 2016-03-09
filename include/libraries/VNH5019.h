@@ -56,6 +56,7 @@ public:
         // default pin selection
         DualVNH5019MotorShield(); // Default pin selection.
 
+
         // User-defined pin selection.
         DualVNH5019MotorShield(PinName INA1_, PinName INB1_, PinName ENDIAG1_, PinName CS1_, PinName PWM1_,
                 PinName INA2_, PinName INB2_, PinName ENDIAG2_, PinName CS2_, PinName PWM2_);
@@ -63,8 +64,8 @@ public:
                 // returns the given motor object, 1 or 2.
                 VNH5019& operator()(int m);
 
-                VNH5019 m1;
-                VNH5019 m2;
+                VNH5019 moteur_droite;
+                VNH5019 moteur_gauche;
         };
 
         inline
@@ -116,11 +117,18 @@ public:
                 ENDIAG.input();
         }
 
+
+        inline
+        DualVNH5019MotorShield::DualVNH5019MotorShield()
+        : moteur_droite(D2, D4, D6, PA_0, D9),
+          moteur_gauche(D7, D8, D12, PA_1, D10)
+        {}
+
         inline
         DualVNH5019MotorShield::DualVNH5019MotorShield(PinName INA1_, PinName INB1_, PinName ENDIAG1_, PinName CS1_, PinName PWM1_,
                 PinName INA2_, PinName INB2_, PinName ENDIAG2_, PinName CS2_, PinName PWM2_)
-                : m1(INA1_, INB1_, ENDIAG1_, CS1_, PWM1_),
-                m2(INA2_, INB2_, ENDIAG2_, CS2_, PWM2_)
+                : moteur_droite(INA1_, INB1_, ENDIAG1_, CS1_, PWM1_),
+                moteur_gauche(INA2_, INB2_, ENDIAG2_, CS2_, PWM2_)
                 {
                 }
 
@@ -128,7 +136,7 @@ public:
                 VNH5019&
                 DualVNH5019MotorShield::operator()(int m)
                 {
-                        return m == 1 ? m1 : m2;
+                        return m == 0 ? moteur_droite : moteur_gauche;
                 }
 
 

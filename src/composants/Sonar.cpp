@@ -6,7 +6,7 @@ void Sonar::init(PinName pin, int pulsetime, float scale, int timeout){
 }
 
 bool Sonar::aDetecteObstacle(){
-    // -1.0 nothing detected by sensor
+    // -1.0 -> rien n'a été détécté par le sonar
     if(this->distanceObstacle() == -1.0) {
         return false;
     }
