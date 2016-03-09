@@ -2,6 +2,7 @@
 
 void Brain::init(){
         pasCourant = 0;
+        aDetecteObstacle = false;
 }
 
 void Brain::start(){
@@ -11,15 +12,13 @@ void Brain::start(){
 }
 
 void Brain::step(){
-        if(pasCourant >= 10){
+        if(serviceSonar->aDetecteObstacle()){
                 serviceMouvement->stopper();
-                return;
+                aDetecteObstacle = true;
         }
-        else{
-                serviceMouvement->avancer(10);
-                return;
+        if(!aDetecteObstacle){
+                serviceMouvement->avancer(300);
         }
-        pasCourant++;
 }
 
 void Brain::bindService(ServiceMouvement* serviceMouvement){

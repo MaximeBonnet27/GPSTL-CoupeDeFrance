@@ -16,7 +16,7 @@ class Logger {
                 static void debug(std::string message);
                 static void info(std::string message);
                 static void warning(std::string message);
-                
+
                 /** Permet de logger une valeur dans un fichier différent
                  * voir si utile
                  */
