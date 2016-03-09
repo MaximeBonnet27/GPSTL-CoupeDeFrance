@@ -23,6 +23,7 @@ class Brain :
                         ServiceMouvement* serviceMouvement;
                         ServiceSonar* serviceSonar;
 
+                        bool aDetecteObstacle;
 
                         int pasCourant;
 
@@ -30,7 +31,7 @@ class Brain :
                         void step();
 
                 public :
-                
+
                         /* Service */
                         void init();
 
