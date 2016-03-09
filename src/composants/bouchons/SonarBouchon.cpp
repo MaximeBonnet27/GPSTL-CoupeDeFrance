@@ -1,8 +1,6 @@
 #include "SonarBouchon.h"
 #include "Logger.h"
 
-
-
 void SonarBouchon::init(){
         Logger::info("SonarBouchon::init");
 }

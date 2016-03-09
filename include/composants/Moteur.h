@@ -2,6 +2,7 @@
 #define MOTEUR_H_GUARD
 
 #include "ServiceMouvement.h"
+#include "DRV8835.h"
 
 /**
  * Composant MOTEUR
@@ -14,6 +15,7 @@
 {
         private :
                 /* A remplir avec pins etc. */
+                DRV8835 * carteMoteur;
 
         public :
                 /* Service */
@@ -21,6 +23,8 @@
                 void init();
 
                 /* ServiceMouvement */
+
+                /* Puissances -> periodewidth en microsecondes */
 
                 void avancer(int puissance);
                 void reculer(int puissance);

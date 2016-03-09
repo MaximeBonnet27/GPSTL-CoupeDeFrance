@@ -1,7 +1,10 @@
 #ifndef SONAR_H_GUARD
 #define SONAR_H_GUARD
 
+#include "mbed.h"
 #include "ServiceSonar.h"
+
+class RangeFinder;
 
 /**
  * Composant Sonar
@@ -14,9 +17,10 @@ class Sonar :
 {
         private :
                 /* A remplir avec pins etc. */
+                RangeFinder* rangeFinder;
         public :
                 /* Service */
-                void init();
+                void init(PinName pin, int pulsetime, float scale, int timeout);
 
                 /* ServiceSonar */
                 bool aDetecteObstacle();
