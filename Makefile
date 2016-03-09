@@ -9,7 +9,7 @@ OBJECTS = ./src/composants/Brain.o \
 	./src/composants/bouchons/SonarBouchon.o \
 	./src/libraries/Pulse.o \
 	./src/libraries/RangeFinder.o \
-	./src/libraries/DRV8835.o \
+	./src/libraries/VNH5019.o \
 	./src/utils/Logger.o \
 	./src/main.o
 

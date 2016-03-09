@@ -2,7 +2,6 @@
 #define MOTEUR_H_GUARD
 
 #include "ServiceMouvement.h"
-#include "DRV8835.h"
 
 /**
  * Composant MOTEUR
