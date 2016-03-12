@@ -4,6 +4,9 @@
 #include "mbed.h"
 #include "ServiceSonar.h"
 
+#define AVANT 0
+#define ARRIERE 1
+
 class RangeFinder;
 
 /**

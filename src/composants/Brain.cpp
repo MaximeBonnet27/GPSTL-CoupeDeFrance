@@ -14,16 +14,19 @@ void Brain::start(){
         }
 }
 
+int etape = 0;
+
 void Brain::step(){
         if(!aEnvoyeAvancer){
                 serviceMouvement->avancer(300);
                 aEnvoyeAvancer = true;
         }
-        if(!aDetecteObstacle && serviceSonar->aDetecteObstacle()){
+        float distance = serviceSonar->distanceObstacle();
+        if(!aDetecteObstacle && distance > 0.2 && distance < 0.6){
                 serviceMouvement->stopper(300);
                 aDetecteObstacle = true;
         }
-        wait(0.1);
+
 }
 
 void Brain::bindService(ServiceMouvement* serviceMouvement){
