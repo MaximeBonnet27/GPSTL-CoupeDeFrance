@@ -6,7 +6,7 @@
 #include "ServiceBrain.h"
 #include "ServiceMouvement.h"
 #include "ServiceSonar.h"
-
+#include "ServiceGyroscope.h"
 /**
  * Composant BRAIN
  * Offre : ServiceBrain
@@ -15,7 +15,8 @@
 class Brain :
         public ServiceBrain,
         public RequiertServiceMouvement,
-        public RequiertServiceSonar
+        public RequiertServiceSonar,
+        public RequiertServiceGyroscope
 {
 
                 private :
@@ -24,7 +25,8 @@ class Brain :
                          */
                         ServiceMouvement* serviceMouvement;
                         ServiceSonar* serviceSonar;
-
+                        ServiceGyroscope* serviceGyroscope;
+    
                         bool aDetecteObstacle;
                         bool aEnvoyeAvancer;
 
@@ -46,6 +48,10 @@ class Brain :
 
                         /* RequiertServiceSonar */
                         void bindService(ServiceSonar * serviceSonar);
+    
+    /* RequiertServiceSonar */
+    void bindService(ServiceGyroscope * serviceGyroscope);
+    
 
 };
 

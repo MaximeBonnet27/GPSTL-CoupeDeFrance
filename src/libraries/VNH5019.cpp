@@ -1,11 +1,12 @@
 #include "VNH5019.h"
 
-VNH5019::VNH5019(PinName INA_, PinName INB_, PinName ENDIAG_, PinName CS_, PinName PWM_)
+VNH5019::VNH5019(PinName INA_, PinName INB_, PinName ENDIAG_, PinName CS_, PinName PWM_, int numero_)
 : INA(INA_),
 INB(INB_),
 ENDIAG(ENDIAG_),
 CS(CS_),
-PWM(PWM_)
+PWM(PWM_),
+numero(numero_)
 {
         this->init();
 }
@@ -16,23 +17,22 @@ void VNH5019::init()
         ENDIAG.mode(PullUp);
         PWM.period_us(250);   // 4 kHz (valid 0 - 20 kHz)
         PWM.write(0);
-        INA = 0;
-        INB = 0;
+
 }
 
 void VNH5019::speed(float Speed)
 {
-        bool Reverse = 0;
+        bool Reverse = !numero;
 
         if (Speed < 0)
         {
                 Speed = -Speed;  // Make speed a positive quantity
-                Reverse = 1;  // Preserve the direction
+                Reverse = !Reverse;  // Preserve the direction
         }
 
         // clamp the speed at maximum
         if (Speed > 1.0)
-        Speed = 1.0;
+                Speed = 1.0;
 
         if (Speed == 0.0)
         {

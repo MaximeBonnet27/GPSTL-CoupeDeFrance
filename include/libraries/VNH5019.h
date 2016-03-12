@@ -6,7 +6,7 @@
 class VNH5019
 {
 public:
-        VNH5019(PinName INA_, PinName INB_, PinName ENDIAG_, PinName CS_, PinName PWM_);
+        VNH5019(PinName INA_, PinName INB_, PinName ENDIAG_, PinName CS_, PinName PWM_, int numero);
 
         // set motor speed from -1.0 to +1.0
         void speed(float Speed);
@@ -37,11 +37,15 @@ public:
         void set_pwm_period(float p)
         { PWM.period(p); }
 
+        DigitalOut   INA;
+        DigitalOut   INB;
+
+        int numero;
+
+
 private:
         void init();
 
-        DigitalOut   INA;
-        DigitalOut   INB;
         DigitalInOut ENDIAG;
         AnalogIn     CS;
         PwmOut       PWM;
@@ -120,15 +124,15 @@ public:
 
         inline
         DualVNH5019MotorShield::DualVNH5019MotorShield()
-        : moteur_droite(D2, D4, D6, PA_0, D9),
-          moteur_gauche(D7, D8, D12, PA_1, D10)
+        : moteur_droite(D2, D4, D6, PA_0, D9, 0),
+          moteur_gauche(D7, D8, D12, PA_1, D10, 1)
         {}
 
         inline
         DualVNH5019MotorShield::DualVNH5019MotorShield(PinName INA1_, PinName INB1_, PinName ENDIAG1_, PinName CS1_, PinName PWM1_,
                 PinName INA2_, PinName INB2_, PinName ENDIAG2_, PinName CS2_, PinName PWM2_)
-                : moteur_droite(INA1_, INB1_, ENDIAG1_, CS1_, PWM1_),
-                moteur_gauche(INA2_, INB2_, ENDIAG2_, CS2_, PWM2_)
+                : moteur_droite(INA1_, INB1_, ENDIAG1_, CS1_, PWM1_, 0),
+                moteur_gauche(INA2_, INB2_, ENDIAG2_, CS2_, PWM2_, 1)
                 {
                 }
 
