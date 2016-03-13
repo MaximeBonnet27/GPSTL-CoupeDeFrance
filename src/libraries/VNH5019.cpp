@@ -15,6 +15,7 @@ void VNH5019::init()
 {
         ENDIAG.input();
         ENDIAG.mode(PullUp);
+        // On pourrait tester d'autre valeurs, Bin avait mis 1000.
         PWM.period_us(250);   // 4 kHz (valid 0 - 20 kHz)
         PWM.write(0);
 
@@ -22,6 +23,15 @@ void VNH5019::init()
 
 void VNH5019::speed(float Speed)
 {
+
+        /*
+         * Pour avancer
+         * moteur droit (numero = 0) : INA -> 0, INB -> 1
+         * moteur gauche (numero = 1) : INA -> 1, INB -> 0
+         * Contraire pour reculer
+         * speed(0) -> roue libre.
+         */
+
         bool Reverse = !numero;
 
         if (Speed < 0)

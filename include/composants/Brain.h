@@ -33,6 +33,15 @@ class Brain :
                         /* Tour de boucle */
                         void step();
 
+                        /* Commodités pour les déplacements
+                         * TODO: a implémenter (avec le gyro)
+                         */
+
+                        void faireDemiTour(float puissance);
+                        void tournerAngleDroitGauche(float puissance);
+                        void tournerAngleDroitDroite(float puissance);
+
+
                 public :
 
                         /* Service */

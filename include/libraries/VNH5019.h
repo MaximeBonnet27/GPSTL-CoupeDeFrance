@@ -121,6 +121,7 @@ public:
                 ENDIAG.input();
         }
 
+        /* Constructeur par défaut initialisé avec les bons pins */
 
         inline
         DualVNH5019MotorShield::DualVNH5019MotorShield()
