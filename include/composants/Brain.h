@@ -10,7 +10,7 @@
 /**
  * Composant BRAIN
  * Offre : ServiceBrain
- * Requiert : ServiceMouvement + ServiceSonar
+ * Requiert : ServiceMouvement + ServiceSonar + Gyroscope
  */
 class Brain :
         public ServiceBrain,
