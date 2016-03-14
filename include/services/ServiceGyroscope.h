@@ -5,7 +5,7 @@
 
 class ServiceGyroscope : public Service {
     public :
-    virtual float angle() = 0;
+    virtual float getHeading() = 0;
 };
 
 class RequiertServiceGyroscope {
