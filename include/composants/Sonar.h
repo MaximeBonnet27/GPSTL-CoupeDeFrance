@@ -23,7 +23,11 @@ class Sonar :
                 RangeFinder* rangeFinder;
         public :
                 /* Service */
+                /* Initialise le sonar AVANT */
                 void init();
+
+                /* Initialise le sonar avec la position donnée en paramètre */
+                void init(int position);
 
                 /* ServiceSonar */
                 bool aDetecteObstacle();

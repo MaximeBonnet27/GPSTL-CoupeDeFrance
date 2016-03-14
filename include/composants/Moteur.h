@@ -33,10 +33,6 @@ class DualVNH5019MotorShield;
                 void reculer(float puissance);
                 void tourner(float puissance, double angle);
                 void stopper(float puissance);
-
-                void faireDemiTour(float puissance);
-                void tournerAngleDroitGauche(float puissance);
-                void tournerAngleDroitDroite(float puissance);
 };
 
 /* MOTEUR_H_GUARD */

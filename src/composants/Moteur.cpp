@@ -41,17 +41,3 @@ void Moteur::stopper(float puissance){
         carteMoteur->moteur_droite.brake(puissance);
         carteMoteur->moteur_gauche.brake(puissance);
 }
-
-void Moteur::faireDemiTour(float puissance){
-        Logger::info("Moteur::demiTour");
-        /* TODO */
-}
-
-void Moteur::tournerAngleDroitGauche(float puissance){
-        Logger::info("Moteur::tournerAngleDroitGauche");
-        /* TODO */
-}
-void Moteur::tournerAngleDroitDroite(float puissance){
-        Logger::info("Moteur::tournerAngleDroitDroite");
-        /* TODO */
-}

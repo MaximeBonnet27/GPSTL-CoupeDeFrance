@@ -24,10 +24,6 @@
                 void reculer(int puissance);
                 void tourner(int puissance, double angle);
                 void stopper();
-
-                void faireDemiTour(int puissance);
-                void tournerAngleDroitGauche(int puissance);
-                void tournerAngleDroitDroite(int puissance);
 };
 
 /* MOTEUR_BOUCHON_H_GUARD */
