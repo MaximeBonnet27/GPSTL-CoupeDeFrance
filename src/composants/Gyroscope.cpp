@@ -11,11 +11,14 @@ void Gyroscope::init(){
     
     this->gyroscope->write_zerocalibrate();
     printf("gyro setup done\r\n");
+    this->angle = 0;
 }
 
-/* TODO Replace this with the getHeading's wrapper à la CMovies */
 float Gyroscope::getHeading(){
+
     float x, y, z;
     this->gyroscope->read_gyroscope(&x, &y, &z);
-    return z;
+    this->angle += z;
+
+    return this->angle;
 }

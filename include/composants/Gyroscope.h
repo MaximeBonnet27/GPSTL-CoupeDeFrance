@@ -16,6 +16,7 @@ public ServiceGyroscope
 {
     private :
     GroveGyroscope* gyroscope;
+    float angle;
     public :
     /* Service */
     void init();
