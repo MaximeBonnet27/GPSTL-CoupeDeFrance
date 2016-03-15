@@ -33,6 +33,12 @@ class DualVNH5019MotorShield;
                 void reculer(float puissance);
                 void tourner(float puissance, double angle);
                 void stopper(float puissance);
+                void roueLibre();
+
+
+                float getIntensiteMoteurDroite();
+                float getIntensiteMoteurGauche();
+
 };
 
 /* MOTEUR_H_GUARD */

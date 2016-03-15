@@ -8,59 +8,60 @@
 #include "ServiceSonar.h"
 #include "ServiceGyroscope.h"
 /**
- * Composant BRAIN
- * Offre : ServiceBrain
- * Requiert : ServiceMouvement + ServiceSonar + Gyroscope
- */
+* Composant BRAIN
+* Offre : ServiceBrain
+* Requiert : ServiceMouvement + ServiceSonar + Gyroscope
+*/
 class Brain :
-        public ServiceBrain,
-        public RequiertServiceMouvement,
-        public RequiertServiceSonar,
-        public RequiertServiceGyroscope
+public ServiceBrain,
+public RequiertServiceMouvement,
+public RequiertServiceSonar,
+public RequiertServiceGyroscope
 {
 
-                private :
-                        /**
-                         * Pointeurs vers services requis
-                         */
-                        ServiceMouvement* serviceMouvement;
-                        ServiceSonar* serviceSonar;
-                        ServiceGyroscope* serviceGyroscope;
-    
-                        bool aDetecteObstacle;
-                        bool aEnvoyeAvancer;
+        private :
+                /**
+                * Pointeurs vers services requis
+                */
+                ServiceMouvement* serviceMouvement;
+                ServiceSonar* serviceSonar;
+                ServiceGyroscope* serviceGyroscope;
 
-                        int pasCourant;
+                bool aDetecteObstacle;
+                bool aEnvoyeAvancer;
+                bool aEnvoyeReculer;
 
-                        /* Tour de boucle */
-                        void step();
+                int pasCourant;
 
-                        /* Commodités pour les déplacements
-                         * TODO: a implémenter (avec le gyro)
-                         */
+                /* Tour de boucle */
+                void step();
 
-                        void faireDemiTour(float puissance);
-                        void tournerAngleDroitGauche(float puissance);
-                        void tournerAngleDroitDroite(float puissance);
+                /* Commodités pour les déplacements
+                * TODO: a implémenter (avec le gyro)
+                */
+
+                void faireDemiTour(float puissance);
+                void tournerAngleDroitGauche(float puissance);
+                void tournerAngleDroitDroite(float puissance);
 
 
-                public :
+        public :
 
-                        /* Service */
-                        void init();
+                /* Service */
+                void init();
 
-                        /* ServiceBrain */
-                        void start();
+                /* ServiceBrain */
+                void start();
 
-                        /* RequiertServiceMouvement */
-                        void bindService(ServiceMouvement * serviceMouvement);
+                /* RequiertServiceMouvement */
+                void bindService(ServiceMouvement * serviceMouvement);
 
-                        /* RequiertServiceSonar */
-                        void bindService(ServiceSonar * serviceSonar);
-    
-    /* RequiertServiceSonar */
-    void bindService(ServiceGyroscope * serviceGyroscope);
-    
+                /* RequiertServiceSonar */
+                void bindService(ServiceSonar * serviceSonar);
+
+                /* RequiertServiceSonar */
+                void bindService(ServiceGyroscope * serviceGyroscope);
+
 
 };
 

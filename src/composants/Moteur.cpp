@@ -41,3 +41,19 @@ void Moteur::stopper(float puissance){
         carteMoteur->moteur_droite.brake(puissance);
         carteMoteur->moteur_gauche.brake(puissance);
 }
+
+void Moteur::roueLibre(){
+        Logger::info("Moteur::roueLibre");
+        carteMoteur->moteur_droite.speed(0.0);
+        carteMoteur->moteur_gauche.speed(0.0);
+}
+
+float Moteur::getIntensiteMoteurDroite(){
+        Logger::info("Moteur::getIntensite");
+        return carteMoteur->moteur_droite.get_current_mA();
+}
+
+float Moteur::getIntensiteMoteurGauche(){
+        Logger::info("Moteur::getIntensite");
+        return carteMoteur->moteur_droite.get_current_mA();
+}

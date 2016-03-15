@@ -16,14 +16,18 @@ public ServiceGyroscope
 {
     private :
     GroveGyroscope* gyroscope;
+
+    // Angle en degrés
     float angle;
     public :
     /* Service */
     void init();
-    
+
     /* ServiceGyro */
+
+    // Degrés
     float getHeading();
-    
+
 };
 
 #endif

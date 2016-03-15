@@ -37,8 +37,6 @@ public:
         void set_pwm_period(float p)
         { PWM.period(p); }
 
-        DigitalOut   INA;
-        DigitalOut   INB;
 
         int numero;
 
@@ -46,6 +44,8 @@ public:
 private:
         void init();
 
+        DigitalOut   INA;
+        DigitalOut   INB;
         DigitalInOut ENDIAG;
         AnalogIn     CS;
         PwmOut       PWM;

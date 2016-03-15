@@ -16,15 +16,26 @@ int etape = 0;
 
 void Brain::step(){
         if(!aEnvoyeAvancer){
-                serviceMouvement->avancer(300);
+                serviceMouvement->avancer(1.0);
                 aEnvoyeAvancer = true;
         }
-        float distance = serviceSonar->distanceObstacle();
-        if(!aDetecteObstacle && distance > 0.2 && distance < 0.6){
-                serviceMouvement->stopper(300);
-                aDetecteObstacle = true;
+        /* TODO : vérifier les valeurs
+         * D'après nos obs, de base il est entre 725ma et 750ma
+         *
+         * Nouvelles observations :
+         * < 0.2
+         * 0.1 est une bonne valeur de seuil checker
+         *
+         */
+        if(etape > 20 && !aEnvoyeReculer && serviceMouvement->getIntensiteMoteurDroite() > 0.1){
+                serviceMouvement->reculer(1.0);
+                aEnvoyeReculer = true;
         }
-
+        etape++;
+        if(etape > 100){
+                serviceMouvement->stopper(1.0);
+        }
+        wait(0.1);
 }
 
 void Brain::bindService(ServiceMouvement* serviceMouvement){
