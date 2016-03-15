@@ -16,19 +16,19 @@ int etape = 0;
 
 void Brain::step(){
         if(!aEnvoyeAvancer){
-                serviceMouvement->avancer(1.0);
+                serviceMouvement->reculer(1.0);
                 aEnvoyeAvancer = true;
         }
         /* TODO : vérifier les valeurs
          * D'après nos obs, de base il est entre 725ma et 750ma
          *
          * Nouvelles observations :
-         * < 0.2
-         * 0.1 est une bonne valeur de seuil checker
-         *
+         * Quand on avance, vérifier que intensité > 0.1
+         * quand on recule, vérifier que intensité > 0.15 !
          */
-        if(etape > 20 && !aEnvoyeReculer && serviceMouvement->getIntensiteMoteurDroite() > 0.1){
-                serviceMouvement->reculer(1.0);
+        if(etape > 5 && !aEnvoyeReculer
+                && (serviceMouvement->getIntensiteMoteurDroite() > 0.15 || serviceMouvement->getIntensiteMoteurGauche() > 0.15)){
+                serviceMouvement->avancer(1.0);
                 aEnvoyeReculer = true;
         }
         etape++;

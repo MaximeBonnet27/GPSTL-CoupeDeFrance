@@ -3,6 +3,10 @@
 
 #include "ServiceMouvement.h"
 
+#define SEUIL_COLLISION_AVANT (0.1)
+#define SEUIL_COLLISION_ARRIERE (0.15)
+#define STEP_AVANT_CHECK_COLLISION 5
+
 class VNH5019;
 class DualVNH5019MotorShield;
 
