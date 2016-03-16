@@ -4,6 +4,12 @@
 
 #include "Service.h"
 
+#define SEUIL_COLLISION_AVANT (0.1)
+#define SEUIL_COLLISION_ARRIERE (0.15)
+#define STEP_AVANT_CHECK_COLLISION 5
+
+#define DROITE (-1)
+#define GAUCHE 1
 
 class ServiceMouvement : public Service {
         public :

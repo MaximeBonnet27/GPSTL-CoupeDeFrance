@@ -1,12 +1,16 @@
 #ifndef BRAIN_H_GUARD
 #define BRAIN_H_GUARD
 
+#include <cstdlib>
+#include <ctime>
+
 #include "mbed.h"
 
 #include "ServiceBrain.h"
 #include "ServiceMouvement.h"
 #include "ServiceSonar.h"
 #include "ServiceGyroscope.h"
+
 /**
 * Composant BRAIN
 * Offre : ServiceBrain
@@ -27,11 +31,41 @@ public RequiertServiceGyroscope
                 ServiceSonar* serviceSonar;
                 ServiceGyroscope* serviceGyroscope;
 
-                bool aDetecteObstacle;
-                bool aEnvoyeAvancer;
-                bool aEnvoyeReculer;
-
+                /* Compteur de pas global */
                 int pasCourant;
+
+                /*** DEPLACEMENT ALEATOIRE ***/
+
+                /*
+                 * Automate
+                 */
+                bool etatAvancer;
+                bool etatReculer;
+                bool etatTournerGauche;
+                bool etatTournerDroite;
+
+                bool transitionVersAvancer;
+                bool transitionVersReculer;
+                bool transitionVersTournerGauche;
+                bool transitionVersTournerDroite;
+
+                /* Compteurs */
+                int nbStepsTourner;
+                int nbStepsAvancer;
+
+                int stepDebutEtat;
+
+                /*** Fin déplacement aléatoire ***/
+
+                /* Angle Droit */
+
+                bool initAngleDroit;
+                float angleInitialAngleDroit;
+
+                /* Step brain angle droit */
+
+                bool tourneADroite;
+                bool tourneAGauche;
 
                 /* Tour de boucle */
                 void step();
@@ -44,6 +78,7 @@ public RequiertServiceGyroscope
                 void tournerAngleDroitGauche(float puissance);
                 void tournerAngleDroitDroite(float puissance);
 
+                void deplacementAleatoire();
 
         public :
 
