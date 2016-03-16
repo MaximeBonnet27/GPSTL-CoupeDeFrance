@@ -22,20 +22,35 @@ void Brain::init(){
         stepDebutEtat = 0;
         /* Fin Automate Aléatoire */
 
+        /* Virages */
+        sommeDeltaZ = 0;
+        initTourner = false;
+
         initAngleDroit = false;
 
 
 }
 
 void Brain::start(){
+
+        Timer timer;
+	timer.start();
+        float start, end, delta;
         while(true){
+                start = timer.read();
                 this->step();
                 pasCourant++;
-                wait(0.1);
+                end = timer.read();
+                delta = end - start;
+                wait(0.1 - delta);
         }
 }
 
 void Brain::step(){
+        carre();
+}
+
+void Brain::carre(){
         if(transitionVersAvancer){
                 etatAvancer = true;
                 etatTournerDroite = false;
@@ -59,12 +74,12 @@ void Brain::step(){
         }
         else if(etatTournerDroite){
                 tournerAngleDroitDroite(1.0);
-                if(!initAngleDroit){
+                if(!initTourner){
+                        etatTournerDroite = false;
                         transitionVersTournerDroite = false;
                         transitionVersAvancer = true;
                 }
         }
-
 }
 
 void Brain::deplacementAleatoire(){
@@ -225,26 +240,34 @@ void Brain::bindService(ServiceGyroscope * serviceGyroscope) {
 }
 
 void Brain::tournerAngleDroitGauche(float puissance){
-        if(!initAngleDroit){
-                initAngleDroit = true;
-                angleInitialAngleDroit = serviceGyroscope->getHeading();
-                serviceMouvement->tourner(1.0, GAUCHE);
-        }
-        if(serviceGyroscope->getHeading() >= angleInitialAngleDroit + 90){
-                serviceMouvement->stopper(1.0);
-                /* Pour le prochain virage */
-                initAngleDroit = false;
-        }
+        tourner(puissance, -90.0);
 }
 void Brain::tournerAngleDroitDroite(float puissance){
-        if(!initAngleDroit){
-                initAngleDroit = true;
-                angleInitialAngleDroit = serviceGyroscope->getHeading();
-                serviceMouvement->tourner(1.0, DROITE);
+        tourner(puissance, 90.0);
+}
+
+void Brain::tourner(float puissance, float angleInDgr){
+        float x, y, z;
+        if(!initTourner){
+                sommeDeltaZ = 0;
+                if(angleInDgr > 0){
+                        serviceMouvement->tourner(puissance, DROITE);
+                }
+                else{
+                        serviceMouvement->tourner(puissance, GAUCHE);
+                }
+                initTourner = true;
         }
-        if(serviceGyroscope->getHeading() <= angleInitialAngleDroit - 90){
-                serviceMouvement->stopper(1.0);
-                /* Pour le prochain virage */
-                initAngleDroit = false;
+
+        float angle = fabs(angleInDgr);
+        serviceGyroscope->read_gyroscope(&x, &y, &z);
+
+        if(sommeDeltaZ < angle){
+                sommeDeltaZ += fabs(z);
         }
+        else{
+                sommeDeltaZ = 0;
+                initTourner = false;
+        }
+
 }

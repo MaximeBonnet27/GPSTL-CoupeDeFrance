@@ -25,3 +25,7 @@ float Gyroscope::getHeading(){
 
     return this->angle;
 }
+
+bool Gyroscope::read_gyroscope(float *gx, float *gy, float *gz){
+        gyroscope->read_gyroscope(gx, gy, gz);
+}

@@ -27,6 +27,8 @@ public ServiceGyroscope
 
     // Degrés
     float getHeading();
+    bool read_gyroscope(float *gx, float *gy, float *gz);
+
 
 };
 

@@ -62,6 +62,10 @@ public RequiertServiceGyroscope
                 bool initAngleDroit;
                 float angleInitialAngleDroit;
 
+                /* Tourner */
+                bool initTourner;
+                float sommeDeltaZ;
+
                 /* Tour de boucle */
                 void step();
 
@@ -74,6 +78,9 @@ public RequiertServiceGyroscope
                 void tournerAngleDroitDroite(float puissance);
 
                 void deplacementAleatoire();
+                void carre();
+
+                void tourner(float puissance, float angleInDgr);
 
         public :
 

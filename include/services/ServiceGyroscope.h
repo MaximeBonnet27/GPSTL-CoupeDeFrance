@@ -6,6 +6,8 @@
 class ServiceGyroscope : public Service {
     public :
     virtual float getHeading() = 0;
+    virtual bool read_gyroscope(float *gx, float *gy, float *gz) = 0;
+
 };
 
 class RequiertServiceGyroscope {

@@ -46,7 +46,7 @@ bool grove_gyro_write_setup(I2C_T *i2c)
     cmdbuf[0] = ITG3200_DLPF;
     cmdbuf[1] = 0x18;
     suli_i2c_write(i2c, GYRO_ADDRESS, cmdbuf, 2);//+/-2000 degrees/s (default value)
-    
+
     return true;
 }
 
@@ -83,19 +83,19 @@ bool grove_gyro_getangularvelocity(I2C_T *i2c, float *ax,float *ay,float *az)
 {
     int16_t x,y,z;
     grove_gyro_getxyz(i2c, &x,&y,&z);
-	
+
 	float currentTimeInSec = timer.read();
 	float delayInSec = currentTimeInSec - lastMeasuredTimeInSec;
 	lastMeasuredTimeInSec = currentTimeInSec;
-	
+
     *ax = mesure_angle(x/14.375, delayInSec);
     *ay = mesure_angle(y/14.375, delayInSec);
     *az = mesure_angle(z/14.375, delayInSec);
-    
+
     return true;
 }
 
-bool grove_gyro_zerocalibrate(I2C_T *i2c) 
+bool grove_gyro_zerocalibrate(I2C_T *i2c)
 {
   int16_t x_offset_temp = 0;
   int16_t y_offset_temp = 0;
@@ -104,7 +104,7 @@ bool grove_gyro_zerocalibrate(I2C_T *i2c)
   x_offset = 0;
   y_offset = 0;
   z_offset = 0;
-  
+
   int iterations = 200;
   for (int i = 0;i < iterations;i++){
     suli_delay_ms(10);
@@ -121,11 +121,11 @@ bool grove_gyro_zerocalibrate(I2C_T *i2c)
   if(x_offset_temp > 0)x_offset = -x_offset;
   if(y_offset_temp > 0)y_offset = -y_offset;
   if(z_offset_temp > 0)z_offset = -z_offset;
-  
+
   printf("gyro offset: %d %d %d\r\n", x_offset, y_offset, z_offset);
-  
+
   timer.start();
   lastMeasuredTimeInSec = timer.read();
-  
+
   return true;
 }
