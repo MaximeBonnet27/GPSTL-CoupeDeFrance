@@ -213,7 +213,7 @@ void Brain::tournerAngleDroitGauche(float puissance){
         if(!initAngleDroit){
                 initAngleDroit = true;
                 angleInitialAngleDroit = serviceGyroscope->getHeading();
-                serviceMouvement->tourner(1.0, DROITE);
+                serviceMouvement->tourner(1.0, GAUCHE);
         }
         if(serviceGyroscope->getHeading() <= angleInitialAngleDroit - 90){
                 serviceMouvement->stopper(1.0);
@@ -225,7 +225,7 @@ void Brain::tournerAngleDroitDroite(float puissance){
         if(!initAngleDroit){
                 initAngleDroit = true;
                 angleInitialAngleDroit = serviceGyroscope->getHeading();
-                serviceMouvement->tourner(1.0, GAUCHE);
+                serviceMouvement->tourner(1.0, DROITE);
         }
         if(serviceGyroscope->getHeading() >= angleInitialAngleDroit + 90){
                 serviceMouvement->stopper(1.0);
