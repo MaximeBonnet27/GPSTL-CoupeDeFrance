@@ -62,11 +62,6 @@ public RequiertServiceGyroscope
                 bool initAngleDroit;
                 float angleInitialAngleDroit;
 
-                /* Step brain angle droit */
-
-                bool tourneADroite;
-                bool tourneAGauche;
-
                 /* Tour de boucle */
                 void step();
 

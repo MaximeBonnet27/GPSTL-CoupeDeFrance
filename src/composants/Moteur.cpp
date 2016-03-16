@@ -25,14 +25,13 @@ void Moteur::reculer(float puissance){
 
 void Moteur::tourner(float puissance, double angle){
         Logger::info("Moteur::tourner");
-        /* TODO A préciser */
-        if(angle < 0){ // On tourne a droite
-                carteMoteur->moteur_droite.brake(1.0);
+        if(angle == DROITE){ // On tourne a droite
+                carteMoteur->moteur_droite.speed(-puissance);
                 carteMoteur->moteur_gauche.speed(puissance);
         }
-        else{ // On tourne a gauche
+        else if(angle == GAUCHE){ // On tourne a gauche
                 carteMoteur->moteur_droite.speed(puissance);
-                carteMoteur->moteur_gauche.brake(1.0);
+                carteMoteur->moteur_gauche.speed(-puissance);
         }
 }
 

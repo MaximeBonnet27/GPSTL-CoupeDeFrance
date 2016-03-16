@@ -125,8 +125,8 @@ public:
 
         inline
         DualVNH5019MotorShield::DualVNH5019MotorShield()
-        : moteur_droite(D2, D4, D6, PA_0, D9, 0),
-          moteur_gauche(D7, D8, D12, PA_1, D10, 1)
+        : moteur_gauche(D2, D4, D6, PA_0, D9, 0),
+          moteur_droite(D7, D8, D12, PA_1, D10, 1)
         {}
 
         inline
