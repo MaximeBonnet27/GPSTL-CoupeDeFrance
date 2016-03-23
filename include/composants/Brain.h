@@ -9,6 +9,7 @@
 #include "ServiceMouvement.h"
 #include "ServiceSonar.h"
 #include "ServiceGyroscope.h"
+#include "ServiceBras.h"
 #include "ServiceIA.h"
 
 /**
@@ -20,7 +21,8 @@ class Brain :
 public RequiertServiceMouvement,
 public RequiertServiceSonar,
 public RequiertServiceGyroscope,
-public RequiertServiceIA
+public RequiertServiceIA,
+public RequiertServiceBras
 {
 
         private :
@@ -30,6 +32,7 @@ public RequiertServiceIA
                 ServiceMouvement* serviceMouvement;
                 ServiceSonar* serviceSonar;
                 ServiceGyroscope* serviceGyroscope;
+					 ServiceBras* serviceBras;
 					 ServiceIA* serviceIA;
 
                 /* Compteur de pas global */
@@ -61,6 +64,10 @@ public RequiertServiceIA
 					 /* RequiertServiceIA */
                 void bindService(ServiceIA * serviceIA);
 					 ServiceIA* getServiceIA();
+
+					 /* RequiertServiceBras */
+                void bindService(ServiceBras * serviceBras);
+					 ServiceBras* getServiceBras();
 
 
 };

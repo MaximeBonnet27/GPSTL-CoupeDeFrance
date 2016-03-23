@@ -5,12 +5,14 @@ GCC_BIN =
 PROJECT = GPSTL-CoupeDeFrance
 OBJECTS = ./src/composants/Brain.o \
 	./src/composants/ia/RandomIA.o \
+	./src/composants/ia/TestBras.o \
 	./src/composants/Sonar.o \
 	./src/composants/bouchons/MoteurBouchon.o \
 	./src/composants/bouchons/SonarBouchon.o \
 	./src/composants/Moteur.o \
     ./src/composants/Gyroscope.o \
     ./src/composants/Sonar.o \
+	 ./src/composants/Bras.o \
 	./src/libraries/Pulse.o \
 	./src/libraries/RangeFinder.o \
 	./src/libraries/VNH5019.o \

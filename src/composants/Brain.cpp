@@ -19,7 +19,7 @@ void Brain::start(){
                 pasCourant++;
                 end = timer.read();
                 delta = end - start;
-                wait(0.1 - delta);
+                wait(1.1 - delta);
         }
 }
 
@@ -54,6 +54,14 @@ ServiceGyroscope* Brain::getServiceGyroscope() {
 
 ServiceIA* Brain::getServiceIA() {
 	return this->serviceIA;
+}
+
+void Brain::bindService(ServiceBras * serviceBras) {
+	this->serviceBras = serviceBras;
+}
+					
+ServiceBras* Brain::getServiceBras() {
+	return serviceBras; 
 }
 
 int Brain::getPasCourant() {
