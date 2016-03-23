@@ -6,21 +6,21 @@
 
 #include "mbed.h"
 
-#include "ServiceBrain.h"
 #include "ServiceMouvement.h"
 #include "ServiceSonar.h"
 #include "ServiceGyroscope.h"
+#include "ServiceIA.h"
 
 /**
 * Composant BRAIN
 * Offre : ServiceBrain
-* Requiert : ServiceMouvement + ServiceSonar + Gyroscope
+* Requiert : ServiceMouvement + ServiceSonar + Gyroscope + IA
 */
 class Brain :
-public ServiceBrain,
 public RequiertServiceMouvement,
 public RequiertServiceSonar,
-public RequiertServiceGyroscope
+public RequiertServiceGyroscope,
+public RequiertServiceIA
 {
 
         private :
@@ -30,57 +30,10 @@ public RequiertServiceGyroscope
                 ServiceMouvement* serviceMouvement;
                 ServiceSonar* serviceSonar;
                 ServiceGyroscope* serviceGyroscope;
+					 ServiceIA* serviceIA;
 
                 /* Compteur de pas global */
                 int pasCourant;
-
-                /*** DEPLACEMENT ALEATOIRE ***/
-
-                /*
-                 * Automate
-                 */
-                bool etatAvancer;
-                bool etatReculer;
-                bool etatTournerGauche;
-                bool etatTournerDroite;
-
-                bool transitionVersAvancer;
-                bool transitionVersReculer;
-                bool transitionVersTournerGauche;
-                bool transitionVersTournerDroite;
-
-                /* Compteurs */
-                int nbStepsTourner;
-                int nbStepsAvancer;
-
-                int stepDebutEtat;
-
-                /*** Fin déplacement aléatoire ***/
-
-                /* Angle Droit */
-
-                bool initAngleDroit;
-                float angleInitialAngleDroit;
-
-                /* Tourner */
-                bool initTourner;
-                float sommeDeltaZ;
-
-                /* Tour de boucle */
-                void step();
-
-                /* Commodités pour les déplacements
-                * TODO: a implémenter (avec le gyro)
-                */
-
-                void faireDemiTour(float puissance);
-                void tournerAngleDroitGauche(float puissance);
-                void tournerAngleDroitDroite(float puissance);
-
-                void deplacementAleatoire();
-                void carre();
-
-                void tourner(float puissance, float angleInDgr);
 
         public :
 
@@ -90,14 +43,24 @@ public RequiertServiceGyroscope
                 /* ServiceBrain */
                 void start();
 
+					 /* Get pasCourent */
+					 int getPasCourant();
+
                 /* RequiertServiceMouvement */
                 void bindService(ServiceMouvement * serviceMouvement);
+					 ServiceMouvement* getServiceMouvement();
 
                 /* RequiertServiceSonar */
                 void bindService(ServiceSonar * serviceSonar);
+					 ServiceSonar* getServiceSonar();
 
                 /* RequiertServiceSonar */
                 void bindService(ServiceGyroscope * serviceGyroscope);
+					 ServiceGyroscope* getServiceGyroscope();
+
+					 /* RequiertServiceIA */
+                void bindService(ServiceIA * serviceIA);
+					 ServiceIA* getServiceIA();
 
 
 };

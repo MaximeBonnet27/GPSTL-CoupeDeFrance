@@ -12,7 +12,8 @@ class ServiceGyroscope : public Service {
 
 class RequiertServiceGyroscope {
     public :
-    virtual void bindService(ServiceGyroscope* service) = 0;
+    	virtual void bindService(ServiceGyroscope* service) = 0;
+	 	virtual ServiceGyroscope* getServiceGyroscope() = 0;
 };
 
 /* SERVICE_GYRO_H_GUARD */
