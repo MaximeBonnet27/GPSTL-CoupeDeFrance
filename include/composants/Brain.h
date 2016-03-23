@@ -10,6 +10,7 @@
 #include "ServiceMouvement.h"
 #include "ServiceSonar.h"
 #include "ServiceGyroscope.h"
+#include "Logger.h"
 
 /**
 * Composant BRAIN
@@ -32,8 +33,8 @@ public RequiertServiceGyroscope
                 ServiceGyroscope* serviceGyroscope;
 
                 /* Compteur de pas global */
-                int pasCourant;
-
+                float pasCourant;
+                Timer timer;
                 /*** DEPLACEMENT ALEATOIRE ***/
 
                 /*
@@ -53,7 +54,7 @@ public RequiertServiceGyroscope
                 int nbStepsTourner;
                 int nbStepsAvancer;
 
-                int stepDebutEtat;
+                float stepDebutEtat;
 
                 /*** Fin déplacement aléatoire ***/
 

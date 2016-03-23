@@ -1,5 +1,6 @@
 #include "Brain.h"
-
+#include <string>
+#include <sstream>
 void Brain::init(){
 
         std::srand(std::time(0));
@@ -16,7 +17,7 @@ void Brain::init(){
         etatTournerGauche = false;
         etatTournerDroite = false;
 
-        nbStepsAvancer = 15;
+        nbStepsAvancer = 3;
         nbStepsTourner = 5;
 
         stepDebutEtat = 0;
@@ -32,17 +33,9 @@ void Brain::init(){
 }
 
 void Brain::start(){
-
-        Timer timer;
-	timer.start();
-        float start, end, delta;
+        timer.start();
         while(true){
-                start = timer.read();
-                this->step();
-                pasCourant++;
-                end = timer.read();
-                delta = end - start;
-                wait(0.1 - delta);
+            this->step();
         }
 }
 
@@ -63,17 +56,17 @@ void Brain::carre(){
         if(etatAvancer){
                 if(transitionVersAvancer){
                         serviceMouvement->avancer(1.0);
-                        stepDebutEtat = pasCourant;
+                        stepDebutEtat = timer.read();
                         transitionVersAvancer = false;
                 }
 
-                if(pasCourant - stepDebutEtat >= nbStepsAvancer){
+                if(timer.read() - stepDebutEtat >= nbStepsAvancer){
                         etatAvancer = false;
                         transitionVersTournerDroite = true;
                 }
         }
         else if(etatTournerDroite){
-                tournerAngleDroitDroite(1.0);
+                tournerAngleDroitDroite(0.75);
                 if(!initTourner){
                         etatTournerDroite = false;
                         transitionVersTournerDroite = false;
@@ -261,6 +254,9 @@ void Brain::tourner(float puissance, float angleInDgr){
 
         float angle = fabs(angleInDgr);
         serviceGyroscope->read_gyroscope(&x, &y, &z);
+        std::ostringstream ss;
+        ss << sommeDeltaZ;
+        Logger::info("Current angle: " + std::string(ss.str()));
 
         if(sommeDeltaZ < angle){
                 sommeDeltaZ += fabs(z);
