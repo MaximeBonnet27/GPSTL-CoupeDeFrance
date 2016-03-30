@@ -36,6 +36,7 @@ class ServiceMouvement : public Service {
 class RequiertServiceMouvement {
         public :
                 virtual void bindService(ServiceMouvement* serviceMouvement) = 0;
+					 virtual ServiceMouvement* getServiceMouvement() = 0;
 };
 
 /* SERVICE_MOUVEMENT_H_GUARD */

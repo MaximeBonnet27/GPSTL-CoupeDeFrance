@@ -12,6 +12,7 @@ class ServiceSonar : public Service {
 class RequiertServiceSonar {
         public :
                 virtual void bindService(ServiceSonar* serviceSonar) = 0;
+					 virtual ServiceSonar* getServiceSonar() = 0;
 };
 
 /* SERVICE_SONAR_H_GUARD */
