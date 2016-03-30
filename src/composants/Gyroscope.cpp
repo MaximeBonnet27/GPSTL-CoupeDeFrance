@@ -1,6 +1,5 @@
 #include "Gyroscope.h"
 
-/* TODO find out/ see with R&D team if there is a need of the Timer for a fixed rate. */
 void Gyroscope::init(){
     this->gyroscope = new GroveGyroscope(D14, D15);
 
