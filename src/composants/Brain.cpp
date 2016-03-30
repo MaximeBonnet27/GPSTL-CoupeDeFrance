@@ -9,7 +9,8 @@ void Brain::init(){
 }
 
 void Brain::start(){
-        while(true){
+    Logger::info("start");
+        while(!serviceIA->isFinished()){
                 serviceIA->step();
                 pasCourant++;
         }

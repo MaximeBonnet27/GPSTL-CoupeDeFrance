@@ -14,6 +14,7 @@ public ServiceIA
 	public :
 		 void init();
 		 void step();
+		 bool isFinished();
 
  		 TestBras(Brain* brain);
 };
