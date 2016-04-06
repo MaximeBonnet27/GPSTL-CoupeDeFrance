@@ -7,7 +7,7 @@ Bras::Bras(PinName pinMode) {
 void Bras::init(){
     pwm = new PwmOut(pinMode);
 
-	 pwm->period_ms(20);
+	pwm->period_ms(20);
     pwm->pulsewidth_us(MIN_VALUE);
 }
 
@@ -21,4 +21,3 @@ void Bras::ouvrir(int pourcentage) {
 int Bras::getOuverture() {
 	return this->ouverture;
 }
-

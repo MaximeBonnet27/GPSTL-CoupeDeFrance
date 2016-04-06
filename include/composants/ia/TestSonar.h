@@ -10,11 +10,14 @@ class TestSonar :
 public ServiceIA
 {
 	private :
-		 Brain* brain;
-                 bool initAvancer;
+		Brain* brain;
+        bool initAvancer;
+		int it;
+		int MAX_IT;
 	public :
 		 void init();
 		 void step();
+		 bool isFinished();
 
  		 TestSonar(Brain* brain);
 };

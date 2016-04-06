@@ -6,6 +6,7 @@ PROJECT = GPSTL-CoupeDeFrance
 OBJECTS = ./src/composants/Brain.o \
 	./src/composants/ia/RandomIA.o \
 	./src/composants/ia/Stage1.o \
+	./src/composants/ia/TestSonar.o \
 	./src/composants/ia/TestBras.o \
 	./src/composants/Sonar.o \
 	./src/composants/bouchons/MoteurBouchon.o \

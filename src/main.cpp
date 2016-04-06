@@ -2,9 +2,11 @@
 
 #include "RandomIA.h"
 #include "TestBras.h"
+#include "TestSonar.h"
 #include "Stage1.h"
 #include "Brain.h"
 #include "Moteur.h"
+#include "Bras.h"
 #include "Sonar.h"
 #include "Gyroscope.h"
 #include "Bras.h"
@@ -13,9 +15,10 @@ int main(){
 
         Brain* brain = new Brain();
         Moteur* moteur = new Moteur();
+        Bras* bras = new Bras(PA_11);
         Sonar* sonar = new Sonar();
         Gyroscope* gyroscope = new Gyroscope();
-        Stage1* stage1 = new Stage1(brain);
+        TestSonar* testSonar = new TestSonar(brain);
 		  //Bras* bras = new Bras(D3);
 		  //RandomIA* randomIA = new RandomIA(brain);
 		  //TestBras* testBras = new TestBras(brain);
@@ -23,18 +26,20 @@ int main(){
         /* Initialisations */
         brain->init();
         moteur->init();
+        bras->init();
         sonar->init();
         gyroscope->init();
 		//bras->init();
-        stage1->init();
+        testSonar->init();
         //randomIA->init();
 		//testBras->init();
 
         /* Bindings */
         brain->bindService(moteur);
+        brain->bindService(bras);
         brain->bindService(sonar);
         brain->bindService(gyroscope);
-        brain->bindService(stage1);
+        brain->bindService(testSonar);
 		  //brain->bindService(randomIA);
 		  //brain->bindService(bras);
 		  //brain->bindService(testBras);
