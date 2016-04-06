@@ -17,7 +17,7 @@ void Sonar::init(int position){
 
 bool Sonar::aDetecteObstacle(){
     // -1.0 -> rien n'a été détécté par le sonar
-    return distanceObstacle() > 0.20 && distanceObstacle() < 0.40;
+    return distanceObstacle() > 0.40 && distanceObstacle() < 0.50;
 }
 
 double Sonar::distanceObstacle(){
