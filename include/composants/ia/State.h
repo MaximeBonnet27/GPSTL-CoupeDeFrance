@@ -2,7 +2,7 @@
 #define STATE_H_GUARD
 
 // STATES
-#define ETAT_NONE               0
+#define ETAT_NULL               0
 #define ETAT_AVANCER            1L << 0
 #define ETAT_RECULER            1L << 1
 #define ETAT_TOURNER_DROITE     1L << 2
