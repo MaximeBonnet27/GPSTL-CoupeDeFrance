@@ -6,6 +6,7 @@ void Brain::init(){
         std::srand(std::time(0));
 
         pasCourant = 0;
+
 }
 
 void Brain::start(){
@@ -21,7 +22,7 @@ void Brain::bindService(ServiceMouvement* serviceMouvement){
 }
 
 void Brain::bindService(ServiceSonar* serviceSonar){
-        this->serviceSonar = serviceSonar;
+        servicesSonar.push_back(serviceSonar);
 }
 
 void Brain::bindService(ServiceGyroscope * serviceGyroscope) {
@@ -38,7 +39,7 @@ ServiceMouvement* Brain::getServiceMouvement() {
 }
 
 ServiceSonar* Brain::getServiceSonar() {
-	return this->serviceSonar;
+	return this->servicesSonar[0];
 }
 
 ServiceGyroscope* Brain::getServiceGyroscope() {
@@ -59,4 +60,8 @@ ServiceBras* Brain::getServiceBras() {
 
 int Brain::getPasCourant() {
 	return pasCourant;
+}
+
+std::vector<ServiceSonar*> Brain::getServicesSonar(){
+        return servicesSonar;
 }

@@ -4,7 +4,7 @@
 
 #include "Service.h"
 
-#define SEUIL_COLLISION_AVANT (0.1)
+#define SEUIL_COLLISION_AVANT (0.40)
 #define SEUIL_COLLISION_ARRIERE (0.15)
 #define STEP_AVANT_CHECK_COLLISION 5
 
@@ -26,6 +26,8 @@ class ServiceMouvement : public Service {
 
                 virtual float getIntensiteMoteurDroite() = 0;
                 virtual float getIntensiteMoteurGauche() = 0;
+
+
 
 };
 

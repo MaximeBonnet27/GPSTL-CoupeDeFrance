@@ -3,6 +3,7 @@
 
 #include <cstdlib>
 #include <ctime>
+#include <vector>
 
 #include "mbed.h"
 
@@ -31,10 +32,10 @@ public RequiertServiceBras
                 * Pointeurs vers services requis
                 */
                 ServiceMouvement* serviceMouvement;
-                ServiceSonar* serviceSonar;
+                std::vector<ServiceSonar*> servicesSonar;
                 ServiceGyroscope* serviceGyroscope;
-					 ServiceBras* serviceBras;
-					 ServiceIA* serviceIA;
+	        ServiceBras* serviceBras;
+	        ServiceIA* serviceIA;
 
                 /* Compteur de pas global */
                 int pasCourant;
@@ -69,6 +70,8 @@ public RequiertServiceBras
 					 /* RequiertServiceBras */
                 void bindService(ServiceBras * serviceBras);
 					 ServiceBras* getServiceBras();
+
+                std::vector<ServiceSonar*> getServicesSonar();
 
 
 };
