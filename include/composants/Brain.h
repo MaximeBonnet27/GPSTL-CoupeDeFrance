@@ -36,17 +36,9 @@ public RequiertServiceFeedbackCurrent
                 ServiceMouvement* serviceMouvement;
                 std::vector<ServiceSonar*> servicesSonar;
                 ServiceGyroscope* serviceGyroscope;
-<<<<<<< HEAD
                 ServiceFeedbackCurrent* feedbackCurrentService;
-	        ServiceBras* serviceBras;
-	        ServiceIA* serviceIA;
-||||||| merged common ancestors
-					 ServiceBras* serviceBras;
-					 ServiceIA* serviceIA;
-=======
-	        ServiceBras* serviceBras;
-	        ServiceIA* serviceIA;
->>>>>>> 325e6718046799f6f0d12c9da11fdbe526597c16
+	            ServiceBras* serviceBras;
+	            ServiceIA* serviceIA;
 
                 /* Compteur de pas global */
                 int pasCourant;
