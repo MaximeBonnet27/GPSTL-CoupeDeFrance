@@ -17,3 +17,7 @@ void TestBras::step(){
 		brain->getServiceBras()->ouvrir(0);
 	}
 }
+
+bool TestBras::isFinished(){
+	return false;
+}

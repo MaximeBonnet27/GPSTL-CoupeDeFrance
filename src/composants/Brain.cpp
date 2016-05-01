@@ -1,5 +1,6 @@
 #include "Brain.h"
-
+#include <string>
+#include <sstream>
 void Brain::init(){
 
         std::srand(std::time(0));
@@ -9,17 +10,10 @@ void Brain::init(){
 }
 
 void Brain::start(){
-
-        Timer timer;
-		  timer.start();
-        float start, end, delta;
-        while(true){
-                start = timer.read();
+    Logger::info("start");
+        while(!serviceIA->isFinished()){
                 serviceIA->step();
                 pasCourant++;
-                end = timer.read();
-                delta = end - start;
-                wait(1.1 - delta);
         }
 }
 
@@ -28,7 +22,7 @@ void Brain::bindService(ServiceMouvement* serviceMouvement){
 }
 
 void Brain::bindService(ServiceSonar* serviceSonar){
-        this->serviceSonar = serviceSonar;
+        servicesSonar.push_back(serviceSonar);
 }
 
 void Brain::bindService(ServiceGyroscope * serviceGyroscope) {
@@ -39,13 +33,16 @@ void Brain::bindService(ServiceIA * serviceIA) {
 	this->serviceIA = serviceIA;
 }
 
+void Brain::bindService(ServiceFeedbackCurrent * service) {
+	this->feedbackCurrentService = service;
+}
 
 ServiceMouvement* Brain::getServiceMouvement() {
 	return this->serviceMouvement;
 }
 
 ServiceSonar* Brain::getServiceSonar() {
-	return this->serviceSonar;
+	return this->servicesSonar[0];
 }
 
 ServiceGyroscope* Brain::getServiceGyroscope() {
@@ -59,11 +56,19 @@ ServiceIA* Brain::getServiceIA() {
 void Brain::bindService(ServiceBras * serviceBras) {
 	this->serviceBras = serviceBras;
 }
-					
+
 ServiceBras* Brain::getServiceBras() {
-	return serviceBras; 
+	return serviceBras;
 }
 
 int Brain::getPasCourant() {
 	return pasCourant;
+}
+
+ServiceFeedbackCurrent* Brain::getFeedbackCurrentService() {
+    return feedbackCurrentService;
+}
+
+std::vector<ServiceSonar*> Brain::getServicesSonar(){
+        return servicesSonar;
 }

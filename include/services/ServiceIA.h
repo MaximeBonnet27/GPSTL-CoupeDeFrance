@@ -7,6 +7,7 @@ class ServiceIA : public Service {
     public :
     virtual void init() = 0;
     virtual void step() = 0;
+    virtual bool isFinished() = 0;
 
 };
 

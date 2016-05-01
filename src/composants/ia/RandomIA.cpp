@@ -2,6 +2,8 @@
 #include "Brain.h"
 #include <cstdlib>
 #include <ctime>
+#include <string>
+#include <sstream>
 
 RandomIA::RandomIA(Brain* brain) {
 	this->brain = brain;
@@ -60,7 +62,7 @@ void RandomIA::carre(){
                 }
         }
         else if(etatTournerDroite){
-                tournerAngleDroitDroite(1.0);
+                tournerAngleDroitDroite(0.75);
                 if(!initTourner){
                         etatTournerDroite = false;
                         transitionVersTournerDroite = false;
@@ -236,6 +238,10 @@ void RandomIA::tourner(float puissance, float angleInDgr){
 
         float angle = fabs(angleInDgr);
         brain->getServiceGyroscope()->read_gyroscope(&x, &y, &z);
+        std::ostringstream ss;
+        ss << sommeDeltaZ;
+        Logger::info("Current angle: " + std::string(ss.str()));
+
 
         if(sommeDeltaZ < angle){
                 sommeDeltaZ += fabs(z);
