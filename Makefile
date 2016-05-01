@@ -14,7 +14,8 @@ OBJECTS = ./src/composants/Brain.o \
 	./src/composants/bouchons/SonarBouchon.o \
 	./src/composants/Moteur.o \
     ./src/composants/Gyroscope.o \
-    ./src/composants/Sonar.o \
+	./src/composants/FeedbackCurrent.o \
+	./src/composants/Sonar.o \
 	 ./src/composants/Bras.o \
 	./src/libraries/Pulse.o \
 	./src/libraries/RangeFinder.o \

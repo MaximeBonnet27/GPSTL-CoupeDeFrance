@@ -33,6 +33,9 @@ void Brain::bindService(ServiceIA * serviceIA) {
 	this->serviceIA = serviceIA;
 }
 
+void Brain::bindService(ServiceFeedbackCurrent * service) {
+	this->feedbackCurrentService = service;
+}
 
 ServiceMouvement* Brain::getServiceMouvement() {
 	return this->serviceMouvement;
@@ -60,6 +63,10 @@ ServiceBras* Brain::getServiceBras() {
 
 int Brain::getPasCourant() {
 	return pasCourant;
+}
+
+ServiceFeedbackCurrent* Brain::getFeedbackCurrentService() {
+    return feedbackCurrentService;
 }
 
 std::vector<ServiceSonar*> Brain::getServicesSonar(){

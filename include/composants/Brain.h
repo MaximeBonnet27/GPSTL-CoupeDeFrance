@@ -10,6 +10,7 @@
 #include "ServiceMouvement.h"
 #include "ServiceSonar.h"
 #include "ServiceGyroscope.h"
+#include "ServiceFeedbackCurrent.h"
 #include "Logger.h"
 #include "ServiceBras.h"
 #include "ServiceIA.h"
@@ -24,7 +25,8 @@ public RequiertServiceMouvement,
 public RequiertServiceSonar,
 public RequiertServiceGyroscope,
 public RequiertServiceIA,
-public RequiertServiceBras
+public RequiertServiceBras,
+public RequiertServiceFeedbackCurrent
 {
 
         private :
@@ -34,6 +36,7 @@ public RequiertServiceBras
                 ServiceMouvement* serviceMouvement;
                 std::vector<ServiceSonar*> servicesSonar;
                 ServiceGyroscope* serviceGyroscope;
+                ServiceFeedbackCurrent* feedbackCurrentService;
 	        ServiceBras* serviceBras;
 	        ServiceIA* serviceIA;
 
@@ -72,6 +75,10 @@ public RequiertServiceBras
 					 ServiceBras* getServiceBras();
 
                 std::vector<ServiceSonar*> getServicesSonar();
+
+                /* RequiertServiceFeedbackCurrent */
+                void bindService(ServiceFeedbackCurrent * feedbackCurrentReader);
+                ServiceFeedbackCurrent* getFeedbackCurrentService();
 
 
 };
