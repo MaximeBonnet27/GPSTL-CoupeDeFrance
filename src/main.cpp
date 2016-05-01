@@ -19,6 +19,7 @@ int main(){
         Gyroscope* gyroscope = new Gyroscope();
         FeedbackCurrent* feedbackCurrentReader = new FeedbackCurrent();
         Stage1* stage1 = new Stage1(brain);
+
         /* Initialisations */
         brain->init();
         moteur->init();
